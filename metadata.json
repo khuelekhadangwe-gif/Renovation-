@@ -1,0 +1,6 @@
+{
+  "name": "Luxury Home Renovations",
+  "description": "Premium home renovations, landscaping, and construction services in Musina, Limpopo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

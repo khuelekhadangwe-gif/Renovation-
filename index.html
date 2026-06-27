@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Home Renovations | Musina, Limpopo Contractor</title>
+    <meta name="description" content="Premium home renovations, landscaping, and construction in Musina, Limpopo. Licensed, affordable, and 24/7 emergency service. Get a free quote today.">
+    <meta name="keywords" content="home renovation Musina, contractor near me, emergency plumber Musina, landscaping services Limpopo, luxury home renovation, construction services Musina">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Luxury Home Renovations | Musina, Limpopo">
+    <meta property="og:description" content="Premium home renovations, landscaping, and construction in Musina. Licensed, affordable & 24/7 emergency service. Get a free quote.">
+    <meta property="og:image" content="https://picsum.photos/seed/luxuryhome/1200/630">
+    <meta property="og:url" content="https://luxuryrenovations.co.za">
+    <meta property="og:type" content="website">
+
+    <!-- JSON-LD LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Luxury Home Renovations",
+      "image": "https://picsum.photos/seed/luxuryhome/1200/630",
+      "@id": "https://luxuryrenovations.co.za",
+      "url": "https://luxuryrenovations.co.za",
+      "telephone": "+27123456789",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Musina",
+        "addressRegion": "Limpopo",
+        "postalCode": "0900",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -22.3459,
+        "longitude": 29.8087
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:30",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "13:00"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+27123456789",
+        "contactType": "customer service",
+        "areaServed": "ZA",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Manrope (Sans) and Cormorant Garamond / Playfair Display (Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#07130b',    /* Deep Luxury Forest Charcoal */
+                            primary: '#0a1a0f', /* Deep Forest Green */
+                            accent: '#c26e10',  /* Premium Bronze Orange */
+                            light: '#fcfdfc',   /* Pure Premium Soft Off-white */
+                            gold: '#df9f53',    /* Elegant warm gold from the mockup */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Background with Elegant Dark Forest Green Vignette */
+        .hero-bg {
+            background-image: radial-gradient(circle, rgba(10, 26, 15, 0.65) 0%, rgba(6, 15, 10, 0.93) 100%), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=1920&auto=format&fit=crop');
+            background-attachment: scroll;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Before/After Gallery Effect */
+        .ba-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .ba-img-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 2;
+        }
+        
+        .ba-container:hover .ba-img-after {
+            opacity: 1;
+        }
+
+        .ba-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            z-index: 3;
+            font-weight: 600;
+        }
+
+        .ba-label-after {
+            display: none;
+        }
+
+        .ba-container:hover .ba-label-before {
+            display: none;
+        }
+
+        .ba-container:hover .ba-label-after {
+            display: block;
+        }
+
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #10B981; /* Green 500 */
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            right: 30px;
+            top: 30px;
+            font-size: 17px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 0.3s, top 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            top: 50px;
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-800">
+
+    <!-- Toast Notification Container -->
+    <div id="toast">Message sent successfully!</div>
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-transparent text-white border-b border-transparent transition-all duration-300 py-3" id="navbar">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo matching mockup style -->
+            <a href="#" class="flex flex-col group" id="logo-link">
+                <span class="text-base md:text-lg font-serif font-light text-white tracking-wide leading-tight transition-colors group-hover:text-brand-gold">Luxury Renovations -</span>
+                <span class="text-xs md:text-sm font-sans font-bold text-white tracking-wider uppercase leading-none transition-colors group-hover:text-brand-gold">Musina Contractor</span>
+            </a>
+
+            <!-- Desktop Nav matching mockup uppercase style -->
+            <nav class="hidden md:flex items-center gap-8 font-sans font-medium tracking-widest text-xs">
+                <a href="#why-choose-us" class="text-white/80 hover:text-brand-gold transition-colors py-2">ABOUT</a>
+                <a href="#services" class="text-white/80 hover:text-brand-gold transition-colors py-2">SERVICES</a>
+                <a href="#gallery" class="text-white/80 hover:text-brand-gold transition-colors py-2">GALLERY</a>
+                <a href="#why-choose-us" class="text-white/80 hover:text-brand-gold transition-colors py-2">PROCESS</a>
+                <a href="#contact" class="text-white/80 hover:text-brand-gold transition-colors py-2">CONTACT</a>
+                <a href="tel:+27123456789" id="nav-call-now" class="border border-white/20 hover:border-brand-gold hover:text-brand-gold text-white px-5 py-2 rounded transition-all flex items-center gap-2 min-h-[44px]">
+                    <i class="fa-solid fa-phone text-[10px]"></i> CALL NOW
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" class="md:hidden text-2xl text-white hover:text-brand-gold focus:outline-none w-11 h-11 flex items-center justify-center">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav matching deep forest green style -->
+        <div id="mobile-menu" class="md:hidden bg-brand-primary/95 backdrop-blur-md border-t border-white/10">
+            <nav class="flex flex-col p-4 gap-2 font-sans font-semibold tracking-widest text-xs">
+                <a href="#why-choose-us" class="block text-white/80 hover:text-brand-gold mobile-link py-3 border-b border-white/5">ABOUT</a>
+                <a href="#services" class="block text-white/80 hover:text-brand-gold mobile-link py-3 border-b border-white/5">SERVICES</a>
+                <a href="#gallery" class="block text-white/80 hover:text-brand-gold mobile-link py-3 border-b border-white/5">GALLERY</a>
+                <a href="#why-choose-us" class="block text-white/80 hover:text-brand-gold mobile-link py-3 border-b border-white/5">PROCESS</a>
+                <a href="#contact" class="block text-white/80 hover:text-brand-gold mobile-link py-3 border-b border-white/5">CONTACT</a>
+                <a href="tel:+27123456789" id="mobile-nav-call-now" class="bg-brand-accent text-white text-center py-3.5 rounded mobile-link block min-h-[44px] uppercase tracking-widest font-bold mt-2">
+                    <i class="fa-solid fa-phone"></i> CALL NOW
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 relative pt-24 pb-16">
+        <div class="relative z-10 max-w-5xl mx-auto text-white reveal py-12">
+            <!-- Sleek Service Location Tag -->
+            <span class="inline-flex items-center gap-2 py-1.5 px-4 border border-brand-accent/40 rounded bg-brand-primary/40 text-brand-gold text-xs font-semibold uppercase tracking-widest mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+                Serving Musina & Limpopo
+            </span>
+            
+            <!-- Master Headline with typography pairing from mockup -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-[1.05] mb-6 text-center max-w-5xl mx-auto select-none">
+                <span class="font-serif font-light text-brand-gold block mb-2">Building Dreams,</span>
+                <span class="font-sans font-extrabold text-white block">Restoring Excellence.</span>
+            </h1>
+            
+            <!-- Minimalist luxury subtitle -->
+            <p class="text-xs sm:text-sm md:text-base font-sans font-light text-white/75 tracking-[0.2em] uppercase mb-12 max-w-2xl mx-auto leading-relaxed">
+                Premium Renovations &bull; Landscaping &bull; 24/7 Service
+            </p>
+            
+            <!-- Side-by-side rectangular bronze buttons from mockup -->
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                <a href="#contact" id="hero-get-quote" class="w-full sm:w-auto bg-brand-accent hover:bg-[#a65d0b] text-white font-sans font-bold tracking-widest text-xs uppercase py-4.5 px-10 rounded shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 min-h-[48px] flex items-center justify-center">
+                    GET A CONSULTATION
+                </a>
+                <a href="#gallery" id="hero-view-projects" class="w-full sm:w-auto bg-brand-accent hover:bg-[#a65d0b] text-white font-sans font-bold tracking-widest text-xs uppercase py-4.5 px-10 rounded shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 min-h-[48px] flex items-center justify-center">
+                    VIEW OUR PROJECTS
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fa-solid fa-chevron-down text-lg"></i>
+        </div>
+    </section>
+
+    <!-- Trust/Stats Bar -->
+    <div class="bg-brand-dark py-6 text-white" id="trust-bar">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-gray-700">
+            <div class="reveal">
+                <i class="fa-solid fa-certificate text-brand-accent text-2xl mb-2"></i>
+                <h4 class="font-bold">Fully Licensed</h4>
+                <p class="text-xs text-gray-400">Certified Professionals</p>
+            </div>
+            <div class="reveal">
+                <i class="fa-solid fa-clock text-brand-accent text-2xl mb-2"></i>
+                <h4 class="font-bold">Fast Response</h4>
+                <p class="text-xs text-gray-400">Same-Day Service</p>
+            </div>
+            <div class="reveal">
+                <i class="fa-solid fa-shield-halved text-brand-accent text-2xl mb-2"></i>
+                <h4 class="font-bold">Guaranteed</h4>
+                <p class="text-xs text-gray-400">5-Year Workmanship Warranty</p>
+            </div>
+            <div class="reveal">
+                <i class="fa-solid fa-star text-brand-accent text-2xl mb-2"></i>
+                <h4 class="font-bold">Top Rated</h4>
+                <p class="text-xs text-gray-400">Trusted Locally</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-primary font-bold tracking-wide uppercase text-sm">What We Do</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2">Comprehensive Construction Services</h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We handle projects of all sizes with the same level of attention to detail.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div id="service-card-renovations" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-b-4 border-brand-accent group reveal">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i class="fa-solid fa-paint-roller text-3xl text-brand-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Home Renovations</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Complete home transformations. We modernize kitchens, bathrooms, and living spaces to match your luxury lifestyle.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div id="service-card-landscaping" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-b-4 border-brand-accent group reveal">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i class="fa-solid fa-tree text-3xl text-brand-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Landscaping</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Design and maintenance of outdoor spaces. Irrigation systems, paving, and garden layout for curb appeal.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div id="service-card-plumbing" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-b-4 border-brand-accent group reveal">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i class="fa-solid fa-wrench text-3xl text-brand-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Plumbing & Electrical</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">24-hour emergency plumbing and electrical services. Repairs, installations, and full compliance checks.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div id="service-card-tiling" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-b-4 border-brand-accent group reveal">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i class="fa-solid fa-trowel text-3xl text-brand-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Tiling & Flooring</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Precision installation of ceramic, porcelain, and natural stone tiles. Durable and stylish finishes.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div id="service-card-roofing" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-b-4 border-brand-accent group reveal">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i class="fa-solid fa-helmet-safety text-3xl text-brand-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Roofing</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Leak repairs, new roof installation, and waterproofing. Protect your home with our guaranteed roofing services.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div id="service-card-drywall" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-b-4 border-brand-accent group reveal">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                        <i class="fa-solid fa-house-chimney-crack text-3xl text-brand-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Drywall & Plastering</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Smooth walls and ceilings. Partitioning, repairs, and decorative plastering for a premium look.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-choose-us" class="py-20 bg-brand-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Musina Trusts Luxury Home Renovations</h2>
+                    <p class="text-blue-100 mb-8 text-lg">
+                        We aren't just contractors; we are your neighbors. We understand the local architecture and the specific needs of homes in Limpopo.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-circle-check text-brand-accent mt-1" aria-hidden="true"></i>
+                            <div>
+                                <strong class="block text-lg">Free, No-Obligation Quotes</strong>
+                                <span class="text-blue-200 text-sm">Transparent pricing with no hidden costs.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-circle-check text-brand-accent mt-1" aria-hidden="true"></i>
+                            <div>
+                                <strong class="block text-lg">Emergency Call-Outs</strong>
+                                <span class="text-blue-200 text-sm">24/7 response for burst pipes and electrical faults.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-circle-check text-brand-accent mt-1" aria-hidden="true"></i>
+                            <div>
+                                <strong class="block text-lg">Qualified Workmanship</strong>
+                                <span class="text-blue-200 text-sm">Every project is managed by certified artisans.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fa-solid fa-circle-check text-brand-accent mt-1" aria-hidden="true"></i>
+                            <div>
+                                <strong class="block text-lg">Local Service</strong>
+                                <span class="text-blue-200 text-sm">Based in Musina, we are always nearby.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 reveal">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://picsum.photos/seed/worker1/300/400" alt="Licensed and professional construction team member in Musina" width="300" height="400" class="rounded-lg shadow-xl w-full h-64 object-cover" loading="lazy">
+                        <img src="https://picsum.photos/seed/tools/300/400" alt="Professional construction and renovation tools for high-quality workmanship" width="300" height="400" class="rounded-lg shadow-xl w-full h-64 object-cover mt-8" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery (Before/After) -->
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-primary font-bold tracking-wide uppercase text-sm">Our Portfolio</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2">Recent Transformations</h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-gray-600">Hover over the images to see the "After" result.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="ba-container h-64 shadow-lg reveal">
+                    <!-- Before (Default) -->
+                    <img src="https://i.ibb.co/RGz0SFDj/General-Residential-Contractor.jpg" alt="General Residential Contractor" width="600" height="400" class="w-full h-full object-cover grayscale-[80%]" loading="lazy">
+                    <!-- After (Hover) -->
+                    <img src="https://i.ibb.co/bRsSRjc3/7b2abaa5-ef2d-41f6-b31c-93d765b84aa9.jpg" alt="7b2abaa5 ef2d 41f6 b31c 93d765b84aa9" width="600" height="400" class="ba-img-after" loading="lazy">
+                    <span class="ba-label ba-label-before">Before</span>
+                    <span class="ba-label ba-label-after">After</span>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="ba-container h-64 shadow-lg reveal">
+                    <img src="https://i.ibb.co/gMx6dBpH/designarena-image-9tl5jdjx.jpg" alt="designarena-image-9tl5jdjx" width="600" height="400" class="w-full h-full object-cover grayscale-[80%]" loading="lazy">
+                    <img src="https://i.ibb.co/kgxz3jGZ/designarena-image-9uyz4mwy.jpg" alt="designarena image 9uyz4mwy" width="600" height="400" class="ba-img-after" loading="lazy">
+                    <span class="ba-label ba-label-before">Before</span>
+                    <span class="ba-label ba-label-after">After</span>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="ba-container h-64 shadow-lg reveal">
+                    <img src="https://i.ibb.co/gFRyHHpQ/K-Oz-Plumbing-07-3901-6042-Emergency-24hr-Brisbane-Plumber.jpg" alt="K-Oz-Plumbing-07-3901-6042-Emergency-24hr-Brisbane-Plumber" border="0" width="600" height="400" class="w-full h-full object-cover grayscale-[80%]" loading="lazy">
+                    <img src="https://i.ibb.co/Fk6RyXnv/Banyonuzu-hem-estetik-hem-de-kullan-l-bir-hale-getirmek-m-mk-n-Minimalist-tasar-mlar-do-al-malz.jpg" alt="Banyonuzu hem estetik hem de kullanışlı bir hale getirmek mümkün Minimalist tasarımlar doğal malz" border="0" width="600" height="400" class="ba-img-after" loading="lazy">
+                    <span class="ba-label ba-label-before">Before</span>
+                    <span class="ba-label ba-label-after">After</span>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="ba-container h-64 shadow-lg reveal">
+                    <img src="https://i.ibb.co/NdCCHkgn/Obra.jpg" alt="Obra" width="600" height="400" class="w-full h-full object-cover grayscale-[80%]" loading="lazy">
+                    <img src="https://i.ibb.co/BKHyqT17/3789a448-ccc3-4b53-a441-eff517c333d5.jpg" alt="3789a448 ccc3 4b53 a441 eff517c333d5" width="600" height="400" class="ba-img-after" loading="lazy">
+                    <span class="ba-label ba-label-before">Before</span>
+                    <span class="ba-label ba-label-after">After</span>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="ba-container h-64 shadow-lg reveal">
+                    <img src="https://i.ibb.co/pBNk4kvF/266d76b7-c754-4cb2-ac0c-73b6d7de3ff1.jpg" alt="266d76b7 c754 4cb2 ac0c 73b6d7de3ff1" border="0" width="600" height="400" class="w-full h-full object-cover grayscale-[80%]" loading="lazy">
+                    <img src="https://i.ibb.co/DHL0Jzrd/1006f181-ecc5-4e7d-a1aa-f485eafd4bb6.jpg" alt="1006f181 ecc5 4e7d a1aa f485eafd4bb6" border="0" width="600" height="400" class="ba-img-after" loading="lazy">
+                    <span class="ba-label ba-label-before">Before</span>
+                    <span class="ba-label ba-label-after">After</span>
+                </div>
+
+                 <!-- Gallery Item 6 -->
+                 <div class="ba-container h-64 shadow-lg reveal">
+                 <img src="https://i.ibb.co/ZR5zjrRv/75994b24-b3bd-4f7d-908c-3367befe7cf6.jpg" alt="75994b24 b3bd 4f7d 908c 3367befe7cf6" border="0" width="600" height="400" class="w-full h-full object-cover grayscale-[80%]" loading="lazy">
+                    <img src="https://i.ibb.co/G3QzsHNT/Wie-streicht-man-Fliesen-Einfache-Anleitung-Tipps.jpg" alt="Wie streicht man Fliesen Einfache Anleitung Tipps" border="0" width="600" height="400" class="ba-img-after" loading="lazy">
+                    <span class="ba-label ba-label-before">Before</span>
+                    <span class="ba-label ba-label-after">After</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-brand-dark mb-12 reveal">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div id="testimonial-card-1" class="bg-gray-50 p-6 rounded-xl shadow-sm reveal">
+                    <div class="flex text-yellow-400 mb-4" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Fast, reliable, and affordable. They fixed our burst pipe within an hour. Truly the best contractor near me in Musina."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold">J</div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark">John D.</h5>
+                            <span class="text-xs text-gray-500">Musina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div id="testimonial-card-2" class="bg-gray-50 p-6 rounded-xl shadow-sm reveal">
+                    <div class="flex text-yellow-400 mb-4" aria-label="5 out of 5 stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"We hired Luxury Home Renovations for our kitchen remodeling. The attention to detail was impressive. Highly recommended!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-white font-bold">S</div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark">Sarah M.</h5>
+                            <span class="text-xs text-gray-500">Nancefield</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div id="testimonial-card-3" class="bg-gray-50 p-6 rounded-xl shadow-sm reveal">
+                    <div class="flex text-yellow-400 mb-4" aria-label="4.5 out of 5 stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Excellent landscaping work. They transformed our yard into a sanctuary. Fair pricing and professional team."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-white font-bold">M</div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark">Michael K.</h5>
+                            <span class="text-xs text-gray-500">Musina-Nance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section id="areas" class="py-16 bg-brand-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8 reveal">Proudly Serving the Limpopo Region</h2>
+            <div class="flex flex-wrap justify-center gap-4 reveal">
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Musina</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Nancefield</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Musina-Nance</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Harmony</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Messel</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Nwanedi</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Pontdrift</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Mapungubwe</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Dendron</span>
+                <span class="px-4 py-2 bg-white/10 rounded-full border border-white/20">Levubu</span>
+            </div>
+            <p class="mt-8 text-gray-400 text-sm reveal">Looking for a contractor in these areas? Call us today.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 relative">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <!-- Contact Info & Map -->
+                <div class="lg:w-1/2 reveal">
+                    <span class="text-brand-primary font-bold tracking-wide uppercase text-sm">Get In Touch</span>
+                    <h2 class="text-3xl font-bold text-brand-dark mt-2 mb-6">Contact Us</h2>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-brand-primary">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Location</h4>
+                                <p class="text-gray-600">123 Main Street, Musina, Limpopo, 0900</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-brand-primary">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Phone</h4>
+                                <a href="tel:+27123456789" class="text-gray-600 hover:text-brand-accent transition-colors">+27 12 345 6789</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-brand-primary">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Email</h4>
+                                <a href="mailto:info@luxuryrenovations.co.za" class="text-gray-600 hover:text-brand-accent transition-colors">info@luxuryrenovations.co.za</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-brand-primary">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Trading Hours</h4>
+                                <p class="text-gray-600">Mon - Fri: 7:30 AM - 5:00 PM</p>
+                                <p class="text-gray-600">Sat: 8:00 AM - 1:00 PM</p>
+                                <p class="text-brand-accent font-semibold text-sm">Emergency: 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embed Map (Generic Musina Location) -->
+                    <div class="h-64 w-full bg-gray-200 rounded-xl overflow-hidden shadow-md">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232046.86465023796!2d29.808650384375!3d-22.345933899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec7ec6b9a81291b%3A0x678d1a9c6f7e0f0!2sMusina%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="256" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Request a Quote Form -->
+                <div class="lg:w-1/2 reveal">
+                    <div class="bg-white p-8 rounded-xl shadow-xl border-t-4 border-brand-accent">
+                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Request a Free Quote</h3>
+                        <p class="text-gray-600 mb-6">Fill in the form below and we will get back to you within 2 hours.</p>
+                        
+                        <form id="quoteForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
+                                    <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="service" class="block text-sm font-semibold text-gray-700 mb-1">Service Needed</label>
+                                    <select id="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white">
+                                        <option value="Renovation">Home Renovation</option>
+                                        <option value="Plumbing">Plumbing</option>
+                                        <option value="Electrical">Electrical</option>
+                                        <option value="Landscaping">Landscaping</option>
+                                        <option value="Roofing">Roofing</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="area" class="block text-sm font-semibold text-gray-700 mb-1">Area / Suburb</label>
+                                <input type="text" id="area" placeholder="e.g., Nancefield" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label for="description" class="block text-sm font-semibold text-gray-700 mb-1">Job Description</label>
+                                <textarea id="description" rows="4" placeholder="Briefly describe the work needed..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-primary text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition-all transform active:scale-95 shadow-lg flex justify-center items-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Send Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-brand-dark text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-hammer text-brand-accent"></i> Luxury Renovations
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Your trusted partner for home improvement in Musina and surrounding areas. Quality you can rely on.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" aria-label="Follow Luxury Renovations on Facebook" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Follow Luxury Renovations on Instagram" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/27123456789?text=Hi%20Luxury%20Home%20Renovations%2C%20I%27d%20like%20a%20quote%20for%20services%20in%20Musina." target="_blank" rel="noopener noreferrer" aria-label="Chat with Luxury Renovations on WhatsApp" class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#hero" class="hover:text-brand-accent transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Services</a></li>
+                        <li><a href="#gallery" class="hover:text-brand-accent transition-colors">Our Work</a></li>
+                        <li><a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Home Renovations</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Plumbing</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Electrical</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Landscaping</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="tel:+27123456789" class="hover:text-brand-accent transition-colors"><i class="fa-solid fa-phone mr-2 text-brand-accent"></i> +27 12 345 6789</a></li>
+                        <li><a href="mailto:info@luxuryrenovations.co.za" class="hover:text-brand-accent transition-colors"><i class="fa-solid fa-envelope mr-2 text-brand-accent"></i> info@luxuryrenovations.co.za</a></li>
+                        <li><i class="fa-solid fa-location-dot mr-2 text-brand-accent"></i> Musina, Limpopo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 Luxury Home Renovations. All rights reserved. | <span class="text-xs">Contractor Musina</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/27123456789?text=Hi%20Luxury%20Home%20Renovations%2C%20I%27d%20like%20a%20quote%20for%20services%20in%20Musina." target="_blank" rel="noopener noreferrer" id="floating-whatsapp" aria-label="Contact us on WhatsApp" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all transform hover:scale-110 animate-bounce">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            menuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+                menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                
+                // Toggle Icon
+                const icon = menuBtn.querySelector('i');
+                if (isOpen) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // Scroll Reveal Animation using Intersection Observer
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15, // Trigger when 15% visible
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Sticky Header Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-brand-primary/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl', 'py-2');
+                    navbar.classList.remove('bg-transparent', 'border-transparent', 'py-3');
+                } else {
+                    navbar.classList.remove('bg-brand-primary/95', 'backdrop-blur-md', 'border-white/10', 'shadow-xl', 'py-2');
+                    navbar.classList.add('bg-transparent', 'border-transparent', 'py-3');
+                }
+            });
+
+            // Custom Toast Notification Function
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                toast.textContent = message;
+                toast.className = "show";
+                setTimeout(() => { 
+                    toast.className = toast.className.replace("show", ""); 
+                }, 4000);
+            }
+
+            // Form Submission Handling
+            const form = document.getElementById('quoteForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Collect values
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const area = document.getElementById('area').value;
+                
+                // Show success message
+                showToast(`Thank you ${name}! We have received your request for ${service} in ${area}.`);
+                
+                // Reset form
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
